@@ -40,12 +40,12 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 	ResultSet rst = stmt.executeQuery("SELECT orderId, orderDate, orderSummary.customerId AS customerId, CONCAT(firstName, ' ', lastName), totalAmount FROM orderSummary JOIN customer ON orderSummary.customerId = customer.customerId");		
 	out.println("<table border = '1'><tr><th>Order Id</th><th>Order Date</th><th>Customer Id</th><th>Customer Name</th><th>Total Amount</th></tr>");
 	while (rst.next())
-	{	String query2 = "SELECT productId, quantity, price FROM orderProduct WHERE orderId = " + rst.getInt(1);
+	{	String query2 = "SELECT productId, quantity, price, productSize FROM orderProduct WHERE orderId = " + rst.getInt(1);
 		ResultSet rst2 = stmt2.executeQuery(query2);
 		out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getTimestamp(2)+"</td>"+"<td>"+rst.getInt(3)+"</td>"+"<td>"+rst.getString(4)+"</td>"+"<td>"+currFormat.format(rst.getDouble(5))+"</td></tr>");	
-		out.println("<tr align = 'right'><td colspan = '5'><table border = '1'><th>Product Id</th><th>Quantity</th><th>Price</th></tr>");
+		out.println("<tr align = 'right'><td colspan = '5'><table border = '1'><th>Product Id</th><th>Size</th><th>Quantity</th><th>Price</th></tr>");
 		while (rst2.next()) {
-			out.println("<tr><td>"+rst2.getInt(1)+"</td>"+"<td>"+rst2.getInt(2)+"</td>"+"<td>"+currFormat.format(rst2.getDouble(3))+"</td></tr>");
+			out.println("<tr><td>"+rst2.getInt(1)+"</td>"+"<td>"+rst2.getDouble(4)+"</td>"+"<td>"+rst2.getInt(2)+"</td>"+"<td>"+currFormat.format(rst2.getDouble(3))+"</td></tr>");
 		}
 		out.println("</table></td></tr>");
 	}

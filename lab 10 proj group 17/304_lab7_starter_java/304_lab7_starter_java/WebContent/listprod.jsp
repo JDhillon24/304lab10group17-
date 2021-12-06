@@ -12,6 +12,14 @@
 <h1>Search for the products you want to buy:</h1>
 
 <form method="get" action="listprod.jsp">
+<p align="left">
+<select size="1" name="categoryName">
+<option>All</option>	  
+<option>Basketball</option>
+<option>Lifestyle</option>
+<option>Training</option>
+<option>Skateboarding</option>       
+</select>
 <input type="text" name="productName" size="50">
 <input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
 </form>
@@ -19,6 +27,7 @@
 <h2>All Products</h2>
 <% // Get product name to search for
 String name = request.getParameter("productName");
+String catname = request.getParameter("categoryName");
 		
 //Note: Forces loading of SQL Server driver
 
@@ -35,14 +44,18 @@ catch (java.lang.ClassNotFoundException e)
 {
 	out.println("ClassNotFoundException: " +e);
 }
-String query1 = "SELECT productId, productName, productPrice FROM product";
-String query2 = "SELECT productId, productName, productPrice FROM product WHERE productName LIKE ?";
+String query1 = "SELECT productId, productName, productPrice FROM product JOIN category ON product.categoryId = category.categoryId";
+String query2 = "SELECT productId, productName, productPrice FROM product JOIN category ON product.categoryId = category.categoryId WHERE productName LIKE ?";
+String query3 = "SELECT productId, productName, productPrice FROM product JOIN category ON product.categoryId = category.categoryId WHERE categoryName = ?";
+
 
 try ( Connection con = DriverManager.getConnection(url, uid, pw);
       PreparedStatement stmt = con.prepareStatement(query1);
-	  PreparedStatement stmt2 = con.prepareStatement(query2);) 
+	  PreparedStatement stmt2 = con.prepareStatement(query2);
+	  PreparedStatement stmt3 = con.prepareStatement(query3);
+	  ) 
 {		
-	if(name == "" || name == null ) {
+	if(name == "" && catname.equals("All"))  {
 		ResultSet rst1 = stmt.executeQuery();
 		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
 		while (rst1.next()) {
@@ -52,7 +65,7 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 		}
 		out.println("</table>");
 
-	}else {
+	}else if(name != ""){
 		stmt2.setString(1, "%" + name + "%");
 		ResultSet rst2 = stmt2.executeQuery();
 		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
@@ -60,6 +73,16 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 			String link = "\"addcart.jsp?id=" + rst2.getString(1) + "&name=" + rst2.getString(2) + "&price=" + rst2.getString(3) + "\"";
 			String link2 = "\"product.jsp?id=" + rst2.getString(1) + "\"";
 			out.println("<tr><td><a href="+link+">Add to Cart</a></td>"+"<td>"+"<a href="+link2+">"+rst2.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst2.getDouble(3))+"</td></tr>");
+		}
+		out.println("</table>");
+	}else if(name == "" && !(catname.equals("All"))){
+		stmt3.setString(1, catname);
+		ResultSet rst3 = stmt3.executeQuery();
+		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
+		while (rst3.next()) {
+			String link = "\"addcart.jsp?id=" + rst3.getString(1) + "&name=" + rst3.getString(2) + "&price=" + rst3.getString(3) + "\"";
+			String link2 = "\"product.jsp?id=" + rst3.getString(1) + "\"";
+			out.println("<tr><td><a href="+link+">Add to Cart</a></td>"+"<td>"+"<a href="+link2+">"+rst3.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst3.getDouble(3))+"</td></tr>");
 		}
 		out.println("</table>");
 	}
