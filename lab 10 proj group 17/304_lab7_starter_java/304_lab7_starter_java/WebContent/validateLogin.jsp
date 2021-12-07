@@ -33,7 +33,7 @@
 		try 
 		{
 			getConnection();
-			String sql = "SELECT * FROM Customer WHERE userId = ? and password = ?";
+			String sql = "SELECT * FROM Customer WHERE userid = ? and password = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);			
 			pstmt.setString(1, username);
 			pstmt.setString(2, password);

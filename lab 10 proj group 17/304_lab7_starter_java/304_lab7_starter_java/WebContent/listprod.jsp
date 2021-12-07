@@ -86,6 +86,16 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 		}
 		out.println("</table>");
 	}
+	else{
+		ResultSet rst1 = stmt.executeQuery();
+		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
+		while (rst1.next()) {
+			String link = "\"addcart.jsp?id=" + rst1.getString(1) + "&name=" + rst1.getString(2) + "&price=" + rst1.getString(3) + "\"";
+			String link2 = "\"product.jsp?id=" + rst1.getString(1) + "\"";
+			out.println("<tr><td><a href="+link+">Add to Cart</a></td>"+"<td>"+"<a href="+link2+">"+rst1.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst1.getDouble(3))+"</td></tr>");
+		}
+		out.println("</table>");
+	}
 }
 catch (SQLException ex) 
 { 	out.println(ex); 
