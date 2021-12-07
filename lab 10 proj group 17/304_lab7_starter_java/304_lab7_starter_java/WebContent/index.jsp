@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <title>Ray's Grocery Main Page</title>
+        <title>ClickForKicks Inc.</title>
       
 </head>
 <body>
@@ -30,7 +30,7 @@
                     </nav>
                 </div>
             </header>
-<h1 align="center">Welcome to Ray's Grocery</h1>
+<h1 align="center" style="font-family:sans-serif">Welcome To ClickForKicks!</h1>
 
 
 <%
