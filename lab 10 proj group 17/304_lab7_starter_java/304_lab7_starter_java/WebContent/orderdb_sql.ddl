@@ -66,7 +66,6 @@ CREATE TABLE product (
     productImageURL     VARCHAR(100),
     productImage        VARBINARY(MAX),
     productDesc         VARCHAR(1000),
-    productSize         DECIMAL(3,1),
     categoryId          INT,
     PRIMARY KEY (productId),
     FOREIGN KEY (categoryId) REFERENCES category(categoryId)

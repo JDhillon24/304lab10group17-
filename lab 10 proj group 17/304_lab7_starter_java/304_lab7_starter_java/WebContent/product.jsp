@@ -21,7 +21,7 @@ NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";
-String sql = "SELECT productName, productPrice, productImageURL FROM product WHERE productId = ?";
+String sql = "SELECT productName, productPrice, productImageURL, productDesc FROM product WHERE productId = ?";
 
 try
 	{	// Load driver class
@@ -41,10 +41,10 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
     rst.next();
 
     out.println("<h2>"+rst.getString(1)+"</h2>");
-    out.println("<table><tr><th>Id</th><td>"+productId+"</td>"+"</tr><tr><th>Price</th><td>"+currFormat.format(rst.getDouble(2))+"</td></tr>");
+    out.println("<table><tr>"+rst.getString(4)+"</tr><tr><th>Id</th><td>"+productId+"</td>"+"</tr><tr><th>Price</th><td>"+currFormat.format(rst.getDouble(2))+"</td></tr>");
     String image = rst.getString(3);
 	if (image != null)
-		out.println("<img src=\""+image+"\">");
+		out.println("<img src=\""+image+"\" align='left'>");
     
     out.println("</table>");
     String link = "\"addcart.jsp?id=" + productId + "&name=" + rst.getString(1) + "&price=" + rst.getString(2) + "\"";    
