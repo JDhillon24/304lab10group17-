@@ -15,6 +15,7 @@ if (productList == null)
 String id = request.getParameter("id");
 String name = request.getParameter("name");
 String price = request.getParameter("price");
+String shoesize = request.getParameter("shoeSize");
 Integer quantity = new Integer(1);
 
 // Store product information in an ArrayList
@@ -23,6 +24,9 @@ product.add(id);
 product.add(name);
 product.add(price);
 product.add(quantity);
+product.add(shoesize);
+
+
 
 // Update quantity if add same item to order again
 if (productList.containsKey(id))

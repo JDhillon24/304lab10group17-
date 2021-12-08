@@ -21,14 +21,34 @@
 <option>Skateboarding</option>       
 </select>
 <input type="text" name="productName" size="50">
+<select size="1" name="shoeSize">
+    <option>7</option>	  
+    <option>7.5</option>
+    <option>8</option>
+    <option>8.5</option>
+    <option>9</option>
+    <option>9.5</option> 
+    <option>10</option> 
+    <option>10.5</option>
+    <option>11</option>
+    <option>11.5</option> 
+    <option>12</option>
+    <option>12.5</option> 
+    <option>13</option>
+    <option>13.5</option>
+    <option>14</option>
+    <option>14.5</option>
+    <option>15</option>               
+    </select>
 <input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
 </form>
 
-<h2>All Products</h2>
+<h2>All Products (Due to decreases in inventory, limit of one size per shoe)</h2>
 <br>
 <% // Get product name to search for
 String name = request.getParameter("productName");
 String catname = request.getParameter("categoryName");
+String shoesize = request.getParameter("shoeSize");
 		
 //Note: Forces loading of SQL Server driver
 
@@ -60,8 +80,8 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 		ResultSet rst1 = stmt.executeQuery();
 		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
 		while (rst1.next()) {
-			String link = "\"addcart.jsp?id=" + rst1.getString(1) + "&name=" + rst1.getString(2) + "&price=" + rst1.getString(3) + "\"";
-			String link2 = "\"product.jsp?id=" + rst1.getString(1) + "\"";
+			String link = "\"addcart.jsp?id=" + rst1.getString(1) + "&name=" + rst1.getString(2) + "&price=" + rst1.getString(3) + "&shoeSize=" + shoesize + "\"";
+			String link2 = "\"product.jsp?id=" + rst1.getString(1) + "&shoeSize=" + shoesize + "\"";
 			out.println("<tr><td><a href="+link+">Add to Cart</a></td>"+"<td>"+"<a href="+link2+">"+rst1.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst1.getDouble(3))+"</td></tr>");
 		}
 		out.println("</table>");

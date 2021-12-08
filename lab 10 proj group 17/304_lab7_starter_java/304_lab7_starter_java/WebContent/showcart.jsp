@@ -4,6 +4,7 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ page import="java.util.Locale" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +23,10 @@ if (productList == null)
 }
 else
 {
-	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
+	NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
 	out.println("<h1>Your Shopping Cart</h1>");
-	out.print("<table><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
+	out.print("<table><tr><th>Product Id</th><th>Product Name</th><th>Product Size</th><th>Quantity</th>");
 	out.println("<th>Price</th><th>Subtotal</th></tr>");
 
 	double total =0;
@@ -33,14 +34,15 @@ else
 	while (iterator.hasNext()) 
 	{	Map.Entry<String, ArrayList<Object>> entry = iterator.next();
 		ArrayList<Object> product = (ArrayList<Object>) entry.getValue();
-		if (product.size() < 4)
+		if (product.size() < 5)
 		{
-			out.println("Expected product with four entries. Got: "+product);
+			out.println("Expected product with five entries. Got: "+product);
 			continue;
 		}
 		
 		out.print("<tr><td>"+product.get(0)+"</td>");
 		out.print("<td>"+product.get(1)+"</td>");
+		out.print("<td align=\"center\">"+product.get(4)+"</td>");
 
 		out.print("<td align=\"center\">"+product.get(3)+"</td>");
 		Object price = product.get(2);
@@ -66,7 +68,9 @@ else
 		}		
 
 		out.print("<td align=\"right\">"+currFormat.format(pr)+"</td>");
-		out.print("<td align=\"right\">"+currFormat.format(pr*qty)+"</td></tr>");
+		out.print("<td align=\"right\">"+currFormat.format(pr*qty)+"</td>");
+		String link = "\"removecart.jsp?id=" +product.get(0)+ "\"";
+		out.print("<td><a href ="+link+">Remove From Cart</a></td></tr>");
 		out.println("</tr>");
 		total = total +pr*qty;
 	}
