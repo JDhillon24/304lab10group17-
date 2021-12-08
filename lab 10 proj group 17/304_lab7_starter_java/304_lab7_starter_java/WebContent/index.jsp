@@ -9,7 +9,10 @@
 
         <style>
             body {
-               background-image: url("304WebsiteBackground.gif");
+                position: fixed;
+                top: 0;
+                background: url("304WebsiteBackground.gif") no-repeat;
+                background-size: 100vw 100vh;
             }
         </style>
       
@@ -36,7 +39,7 @@
                     </nav>
                 </div>
             </header>
-<h1 align="center" style="font-family:sans-serif">Welcome To ClickForKicks!</h1>
+
 
 
 <%
