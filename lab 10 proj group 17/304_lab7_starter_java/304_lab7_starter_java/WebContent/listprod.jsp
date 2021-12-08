@@ -8,9 +8,9 @@
 <title>YOUR NAME Grocery</title>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 <h1>Search for the products you want to buy:</h1>
-
+<br>
 <form method="get" action="listprod.jsp">
 <p align="left">
 <select size="1" name="categoryName">
@@ -25,6 +25,7 @@
 </form>
 
 <h2>All Products</h2>
+<br>
 <% // Get product name to search for
 String name = request.getParameter("productName");
 String catname = request.getParameter("categoryName");
