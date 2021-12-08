@@ -11,7 +11,8 @@
 <title>Your Shopping Cart</title>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
+<br>
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})

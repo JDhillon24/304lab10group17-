@@ -22,7 +22,7 @@
                     <li><span><a href="listorder.jsp" class="button">List All Orders</a></span></li>
                     <li><span><a href="customer.jsp" class="button">Customer Info</a></span></li>
                     <li><span><a href="admin.jsp" class="button">Administrators</a></span></li>
-                    <li><span><a href="logout.jsp"  class="button">Log out</a></span></li>
+                    <li><span><a href="showcart.jsp"  class="button">Cart</a></span></li>
                     
                      
                 </nav>
