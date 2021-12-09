@@ -4,14 +4,14 @@
 <title>Administrator Page</title>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 <%@ include file="../auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
 <%@ page import="java.util.Locale" %>
 
 <%
-	String userName = (String) session.getAttribute("authenticatedUser");
+	userName = (String) session.getAttribute("authenticatedUser");
 %>
 
 <%
