@@ -46,6 +46,7 @@ if (session.getAttribute("loginMessage") != null)
 </tr>
 </table>
 <br/>
+<br>
 <input class="submit" type="submit" name="Submit2" value="Log In" id = "submit-button">
 </form>
 

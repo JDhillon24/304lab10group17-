@@ -7,6 +7,8 @@
 
 body {
     font-family: 'Readex Pro', sans-serif;
+    background: linear-gradient(rgb(198, 198, 198), rgb(133, 133, 138));
+    height: 100vh;
   }
 
 
@@ -79,9 +81,9 @@ header nav .button{
 
 .textentry {
     position:  absolute;
-    top:       400px;  /* I usually locate relative to top  */
-    left:      590px; /* left corner of container (screen) */
-    height:    250px;  /*  often useful to keep screen orderly */
+    top:       400px;  
+    left:      590px; 
+    height:    250px;  
     width:     500px;
   }
 
@@ -91,7 +93,7 @@ header nav .button:hover{
 
 .h3 {
     position: absolute;
-    left: 800px;
+    left: 770px;
     top: 37px;
 
 }
