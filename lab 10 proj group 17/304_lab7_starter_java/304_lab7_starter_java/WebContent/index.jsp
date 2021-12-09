@@ -30,26 +30,38 @@
                     </div>
         
                     <nav>
-                         
-                        <li><span><a href="login.jsp" class="button">Login</a></span></li>
-                        <li><span><a href="listprod.jsp" class="button">Begin Shopping</a></span></li>
-                        <li><span><a href="listorder.jsp" class="button">List All Orders</a></span></li>
-                        <li><span><a href="customer.jsp" class="button">Customer Info</a></span></li>
-                        <li><span><a href="admin.jsp" class="button">Administrators</a></span></li>
-                        <li><span><a href="showcart.jsp"  class="button">Cart</a></span></li>
+                        <%  
+                        String userName = (String) session.getAttribute("authenticatedUser");
+	                    if (userName != null) {
+		                    out.println("<h3 style=\"color:White;\" align=\"center\" class=\"h3\">Signed in as: "+userName+"</h3>");
+                            out.println("<li><span><a href=\"logout.jsp\" class=\"button\">Logout</a></span></li>");
+                            out.println("<li><span><a href=\"listprod.jsp\" class=\"button\">Begin Shopping</a></span></li>");
+                            out.println("<li><span><a href=\"listorder.jsp\" class=\"button\">List All Orders</a></span></li>");
+                            out.println("<li><span><a href=\"customer.jsp\" class=\"button\">Customer Info</a></span></li>");
+                            out.println("<li><span><a href=\"admin.jsp\" class=\"button\">Administrators</a></span></li>");
+                            out.println("<li><span><a href=\"showcart.jsp\"  class=\"button\">Cart</a></span></li>");
                         
-                         
+                        }else {
+                            out.println("<li><span><a href=\"login.jsp\" class=\"button\">Login</a></span></li>");
+                            out.println("<li><span><a href=\"listprod.jsp\" class=\"button\">Begin Shopping</a></span></li>");
+                            out.println("<li><span><a href=\"listorder.jsp\" class=\"button\">List All Orders</a></span></li>");
+                            out.println("<li><span><a href=\"customer.jsp\" class=\"button\">Customer Info</a></span></li>");
+                            out.println("<li><span><a href=\"admin.jsp\" class=\"button\">Administrators</a></span></li>");
+                            out.println("<li><span><a href=\"showcart.jsp\"  class=\"button\">Cart</a></span></li>");
+
+
+                        }
+                        
+                        
+                        
+                        %> 
                     </nav>
                 </div>
             </header>
 
 
 
-<%
-	String userName = (String) session.getAttribute("authenticatedUser");
-	if (userName != null)
-		out.println("<h3 align=\"center\">Signed in as: "+userName+"</h3>");
-%>
+
 </body>
 </head>
 
