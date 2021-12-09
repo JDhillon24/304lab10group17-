@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>YOUR NAME Grocery</title>
+<title>ClickForKicks Products</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -65,9 +65,9 @@ catch (java.lang.ClassNotFoundException e)
 {
 	out.println("ClassNotFoundException: " +e);
 }
-String query1 = "SELECT productId, productName, productPrice FROM product JOIN category ON product.categoryId = category.categoryId";
-String query2 = "SELECT productId, productName, productPrice FROM product JOIN category ON product.categoryId = category.categoryId WHERE productName LIKE ?";
-String query3 = "SELECT productId, productName, productPrice FROM product JOIN category ON product.categoryId = category.categoryId WHERE categoryName = ?";
+String query1 = "SELECT productId, productName, productPrice, productImageURL FROM product JOIN category ON product.categoryId = category.categoryId";
+String query2 = "SELECT productId, productName, productPrice, productImageURL FROM product JOIN category ON product.categoryId = category.categoryId WHERE productName LIKE ?";
+String query3 = "SELECT productId, productName, productPrice, productImageURL FROM product JOIN category ON product.categoryId = category.categoryId WHERE categoryName = ?";
 
 
 try ( Connection con = DriverManager.getConnection(url, uid, pw);
@@ -81,8 +81,9 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
 		while (rst1.next()) {
 			String link = "\"addcart.jsp?id=" + rst1.getString(1) + "&name=" + rst1.getString(2) + "&price=" + rst1.getString(3) + "&shoeSize=" + shoesize + "\"";
+			String image = rst1.getString(4);
 			String link2 = "\"product.jsp?id=" + rst1.getString(1) + "&shoeSize=" + shoesize + "\"";
-			out.println("<tr><td><a href="+link+">Add to Cart</a></td>"+"<td>"+"<a href="+link2+">"+rst1.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst1.getDouble(3))+"</td></tr>");
+			out.println("<tr><td><img style='max-height:300px;max-width:500px;' src=\""+image+"\" align='left'></td>"+"<td>"+"<a href="+link2+">"+rst1.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst1.getDouble(3))+"</td></tr>");
 		}
 		out.println("</table>");
 
@@ -92,8 +93,9 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
 		while (rst2.next()) {
 			String link = "\"addcart.jsp?id=" + rst2.getString(1) + "&name=" + rst2.getString(2) + "&price=" + rst2.getString(3) + "\"";
+			String image = rst2.getString(4);
 			String link2 = "\"product.jsp?id=" + rst2.getString(1) + "\"";
-			out.println("<tr><td><a href="+link+">Add to Cart</a></td>"+"<td>"+"<a href="+link2+">"+rst2.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst2.getDouble(3))+"</td></tr>");
+			out.println("<tr><td><img style='max-height:300px;max-width:500px;' src=\""+image+"\" align='left'></td>"+"<td>"+"<a href="+link2+">"+rst2.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst2.getDouble(3))+"</td></tr>");
 		}
 		out.println("</table>");
 	}else if(name == "" && !(catname.equals("All"))){
@@ -102,8 +104,9 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
 		while (rst3.next()) {
 			String link = "\"addcart.jsp?id=" + rst3.getString(1) + "&name=" + rst3.getString(2) + "&price=" + rst3.getString(3) + "\"";
+			String image = rst3.getString(4);
 			String link2 = "\"product.jsp?id=" + rst3.getString(1) + "\"";
-			out.println("<tr><td><a href="+link+">Add to Cart</a></td>"+"<td>"+"<a href="+link2+">"+rst3.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst3.getDouble(3))+"</td></tr>");
+			out.println("<tr><td><img style='max-height:300px;max-width:500px;' src=\""+image+"\" align='left'></td>"+"<td>"+"<a href="+link2+">"+rst3.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst3.getDouble(3))+"</td></tr>");
 		}
 		out.println("</table>");
 	}
@@ -112,8 +115,9 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
 		while (rst1.next()) {
 			String link = "\"addcart.jsp?id=" + rst1.getString(1) + "&name=" + rst1.getString(2) + "&price=" + rst1.getString(3) + "\"";
+			String image = rst1.getString(4);
 			String link2 = "\"product.jsp?id=" + rst1.getString(1) + "\"";
-			out.println("<tr><td><a href="+link+">Add to Cart</a></td>"+"<td>"+"<a href="+link2+">"+rst1.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst1.getDouble(3))+"</td></tr>");
+			out.println("<tr><td><img style='max-height:300px;max-width:500px;' src=\""+image+"\" align='left' ></td>"+"<td>"+"<a href="+link2+">"+rst1.getString(2)+"</a>"+"</td>"+"<td>"+currFormat.format(rst1.getDouble(3))+"</td></tr>");
 		}
 		out.println("</table>");
 	}
