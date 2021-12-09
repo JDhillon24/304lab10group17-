@@ -138,6 +138,8 @@ CREATE TABLE review (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
+
 INSERT INTO category(categoryName) VALUES ('Basketball');
 INSERT INTO category(categoryName) VALUES ('Lifestyle');
 INSERT INTO category(categoryName) VALUES ('Training');
@@ -214,7 +216,7 @@ INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Osiris', 'Williams', 'yk@charity.org', '333-444-5555', '333 Central Crescent', 'Chicago', 'IL', '33333', 'United States', 'YKOsiris' , 'password');
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Kentrell', 'Gaulden', 'ybBetter@doe.com', '250-807-2222', '444 Dover Lane', 'Kelowna', 'BC', 'V1V 2X9', 'Canada', 'TOPDGAF' , 'pw');
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Dominique', 'Jones', 'baby@uiowa.edu', '555-666-7777', '555 Everwood Street', 'Iowa City', 'IA', '52241', 'United States', 'LilBaby' , 'test');
-
+INSERT INTO review(customerId, productId, reviewComment) VALUES (4, 1, 'This shit ass asdfasfdsfasdfsafadskfjlawdfjlkdsajflkasdjflkasjflkasdjflasf');
 -- Order 1 can be shipped as have enough inventory
 DECLARE @orderId int
 INSERT INTO ordersummary (customerId, orderDate, totalAmount) VALUES (1, '2019-10-15 10:25:55', 855.00)

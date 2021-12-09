@@ -77,6 +77,14 @@ header nav .button{
     border-radius: 45px;
 }
 
+.textentry {
+    position:  absolute;
+    top:       400px;  /* I usually locate relative to top  */
+    left:      590px; /* left corner of container (screen) */
+    height:    250px;  /*  often useful to keep screen orderly */
+    width:     500px;
+  }
+
 header nav .button:hover{
     filter: brightness(1.09);
 }
