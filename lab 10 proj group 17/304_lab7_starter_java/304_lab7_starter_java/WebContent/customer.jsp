@@ -8,6 +8,7 @@
 <%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
+<%@ page import="java.util.Locale" %>
 
 <%
 	String userName = (String) session.getAttribute("authenticatedUser");
@@ -17,15 +18,17 @@
 
 // Print Customer information
 String sql = "select customerId, firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password FROM Customer WHERE userid = ?";
+String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+String uid = "SA";
+String pw = "YourStrong@Passw0rd";
+NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
-NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-
-try 
+try (Connection con = DriverManager.getConnection(url, uid, pw);
+PreparedStatement pstmt = con.prepareStatement(sql);)
 {	
 	out.println("<h3>Customer Profile</h3>");
 	
-	getConnection();
-	PreparedStatement pstmt = con.prepareStatement(sql);
+	
 	pstmt.setString(1, userName);	
 	ResultSet rst = pstmt.executeQuery();
 	

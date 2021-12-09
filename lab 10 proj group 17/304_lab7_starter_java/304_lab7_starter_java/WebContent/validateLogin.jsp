@@ -1,6 +1,17 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 <%@ include file="jdbc.jsp" %>
 <%
+	try
+	{	// Load driver class
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+	}
+	catch (java.lang.ClassNotFoundException e)
+	{
+		out.println("ClassNotFoundException: " +e);
+	}    
+
+
+
 	String authenticatedUser = null;
 	session = request.getSession(true);
 
@@ -24,17 +35,20 @@
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String retStr = null;
+		String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+		String uid = "SA";
+		String pw = "YourStrong@Passw0rd";
+		String sql = "SELECT * FROM customer WHERE userid = ? and password = ?";
 
 		if(username == null || password == null)
 				return null;
 		if((username.length() == 0) || (password.length() == 0))
 				return null;
 
-		try 
+		try (Connection con = DriverManager.getConnection(url, uid, pw);
+		PreparedStatement pstmt = con.prepareStatement(sql);)
 		{
-			getConnection();
-			String sql = "SELECT * FROM customer WHERE userid = ? and password = ?";
-			PreparedStatement pstmt = con.prepareStatement(sql);			
+					
 			pstmt.setString(1, username);
 			pstmt.setString(2, password);
 			
