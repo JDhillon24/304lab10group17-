@@ -74,7 +74,7 @@ CREATE TABLE product (
 CREATE TABLE orderproduct (
     orderId             INT,
     productId           INT,
-    productSize         DECIMAL(3,1),
+    productSize         VARCHAR(4),
     quantity            INT,
     price               DECIMAL(10,2),  
     PRIMARY KEY (orderId, productId),

@@ -4,6 +4,8 @@
 <title>Login Screen</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
+<br>
 
 <div style="margin:0 auto;text-align:center;display:inline">
 
