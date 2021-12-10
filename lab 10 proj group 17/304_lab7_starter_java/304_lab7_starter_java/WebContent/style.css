@@ -97,6 +97,9 @@ header nav .button:hover{
     top: 37px;
 
 }
+tr.spacerows>td {
+    padding-bottom: 2em;
+  }
 @media only screen and (max-width: 600px) {
     header .inner {
         width: 600px;  

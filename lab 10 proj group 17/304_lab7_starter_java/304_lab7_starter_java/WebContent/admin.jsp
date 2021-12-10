@@ -11,7 +11,9 @@
 <%@ page import="java.util.Locale" %>
 
 <%
-	userName = (String) session.getAttribute("authenticatedUser");
+	String userName1 = (String) session.getAttribute("authenticatedUser");
+	out.println("<li><span><a href=\"addproduct.jsp\" class=\"button\">Add New Product</a></span></li>");
+	
 %>
 
 <%

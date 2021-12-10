@@ -43,6 +43,7 @@
                         
                         }else {
                             out.println("<li><span><a href=\"login.jsp\" class=\"button\">Login</a></span></li>");
+                            out.println("<li><span><a href=\"createaccount.jsp\" class=\"button\">Register</a></span></li>");
                             out.println("<li><span><a href=\"listprod.jsp\" class=\"button\">Begin Shopping</a></span></li>");
                             out.println("<li><span><a href=\"listorder.jsp\" class=\"button\">List All Orders</a></span></li>");
                             out.println("<li><span><a href=\"customer.jsp\" class=\"button\">Customer Info</a></span></li>");
