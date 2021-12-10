@@ -31,7 +31,8 @@ String pw = "YourStrong@Passw0rd";
 NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
 try (Connection con = DriverManager.getConnection(url, uid, pw);
-Statement stmt = con.createStatement();)
+Statement stmt = con.createStatement();
+Statement stmt2 = con.createStatement();)
 {	
 	out.println("<h3>Administrator Sales Report by Day</h3>");
 	
@@ -45,6 +46,14 @@ Statement stmt = con.createStatement();)
 		out.println("<tr><td>"+rst.getString(1)+"-"+rst.getString(2)+"-"+rst.getString(3)+"</td><td>"+currFormat.format(rst.getDouble(4))+"</td></tr>");
 	}
 	out.println("</table>");		
+	out.println("<h3>Customer List</h3>");
+	ResultSet rst2 = stmt2.executeQuery("SELECT customerId, CONCAT(firstName, ' ', lastName) FROM customer");
+	out.println("<table border = '1'><tr><th>Customer Id</th><th>Customer Name</th></tr>");
+		while (rst2.next())
+		{	
+	out.println("<tr><td>"+rst2.getInt(1)+"</td>"+"<td>"+rst2.getString(2)+"</td></tr>");
+		}
+	out.println("</table></td></tr>");
 }
 catch (SQLException ex) 
 { 	out.println(ex); 
