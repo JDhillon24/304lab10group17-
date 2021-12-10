@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>YOUR NAME Grocery Order List</title>
+<title>ClickForKicks Orders</title>
 </head>
 <body>
 	<%@ include file="header.jsp" %>

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Ray's Grocery</title>
+<title>ClickForKicks</title>
 </head>
 <body>
 

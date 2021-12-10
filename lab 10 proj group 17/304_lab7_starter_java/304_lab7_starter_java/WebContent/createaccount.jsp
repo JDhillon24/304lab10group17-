@@ -55,7 +55,7 @@
     </tr>
     <tr class="spacerows">
     <td><p>Postal Code:</p></td>
-    <td><input type="text" name="postalcode" size=25 maxlength=7 required></td>
+    <td><input type="text" name="postalcode" size=25 maxlength=6 required></td>
     </tr>
     <tr class="spacerows">
     <td><p>Country:</p></td>
