@@ -13,7 +13,8 @@
 <%
 	String userName1 = (String) session.getAttribute("authenticatedUser");
 	out.println("<li><span><a href=\"addproduct.jsp\" class=\"button\">Add New Product</a></span></li>");
-	
+	out.println("<li><span><a href=\"deleteproduct.jsp\" class=\"button\">Delete Product</a></span></li>");
+	out.println("<li><span><a href=\"updateproduct.jsp\" class=\"button\">Update Product</a></span></li>");
 %>
 
 <%

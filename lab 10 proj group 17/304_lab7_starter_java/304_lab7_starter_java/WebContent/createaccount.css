@@ -19,9 +19,8 @@ body {
   padding: 10px 100px 5px 130px;
 }
 
-#submit-button {
-  width: 14%;
-  padding: 7px;
+.createbutton {
+  width: 300%;
   border: none;
   border-radius: 50px;
   color: white;
@@ -29,5 +28,8 @@ body {
   background-color: #3a3a3a;
   cursor: pointer;
   outline: none;
+  padding: 7px;
+  position: relative;
+  left: -10px;
   
 }
