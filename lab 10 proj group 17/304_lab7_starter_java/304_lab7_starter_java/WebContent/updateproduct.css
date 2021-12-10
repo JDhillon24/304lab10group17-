@@ -1,0 +1,35 @@
+html {
+    height: 100%;
+  }
+  
+  body {
+    height: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    align-items: top;
+    background: linear-gradient(rgb(198, 198, 198), rgb(133, 133, 138));
+  }
+  
+  .login-form {
+    border: none;
+    border-bottom: 1px solid #3a3a3a;
+    outline: none;
+    padding: 10px 100px 5px 130px;
+  }
+  
+  #submit-button {
+    width: 300%;
+    padding: 7px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    background-color: #3a3a3a;
+    cursor: pointer;
+    outline: none;
+  }
+
+  tr.spacerows>td {
+    padding-bottom: 1em;
+  }
