@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ClickForKicks Login</title>
+<title>Ship Order</title>
 <link rel="stylesheet" href="login.css">
 </head>
 <body>
