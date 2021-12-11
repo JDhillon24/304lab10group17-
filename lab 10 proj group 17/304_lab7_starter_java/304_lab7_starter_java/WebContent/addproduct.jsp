@@ -21,7 +21,7 @@
     <table style="display:inline">
     <tr class= "spacerows">
         <td><p>Shoe Name: </p></td>
-        <td><center><input type="text" name="name"  id = "pname-field" class = "Product-form" size=10 maxlength=10 required></center></td>
+        <td><center><input type="text" name="name"  id = "pname-field" class = "Product-form" size=10 maxlength=50 required></center></td>
     </tr>
     <tr class= "spacerows">
         <td><p>Category Id: </p></td>

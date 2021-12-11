@@ -102,18 +102,18 @@ catch (java.lang.ClassNotFoundException e)
 {
 	out.println("ClassNotFoundException: " +e);
 }
-String sql = "UPDATE product SET firstName = ? WHERE productId = ?";
-String sql2 = "UPDATE product SET lastName = ? WHERE productId = ?";
-String sql3= "UPDATE product SET email = ? WHERE productId = ?";
-String sql4 = "UPDATE product SET phonenum = ? WHERE productId = ?";
-String sql5 = "UPDATE product SET address = ? WHERE productId = ?";
-String sql6 = "UPDATE product SET city = ? WHERE productId = ?";
-String sql7= "UPDATE product SET state = ? WHERE productId = ?";
-String sql8 = "UPDATE product SET postalCode = ? WHERE productId = ?";
-String sql9 = "UPDATE product SET country = ? WHERE productId = ?";
-String sql10 = "UPDATE product SET userid = ? WHERE productId = ?";
-String sql11= "UPDATE product SET password = ? WHERE productId = ?";
-String sql12 = "SELECT productName, categoryId, productDesc, productPrice FROM product WHERE productId = ?";
+String sql = "UPDATE customer SET firstName = ? WHERE customerId = ?";
+String sql2 = "UPDATE customer SET lastName = ? WHERE customerId = ?";
+String sql3= "UPDATE customer SET email = ? WHERE customerId = ?";
+String sql4 = "UPDATE customer SET phonenum = ? WHERE customerId = ?";
+String sql5 = "UPDATE customer SET address = ? WHERE customerId = ?";
+String sql6 = "UPDATE customer SET city = ? WHERE customerId = ?";
+String sql7= "UPDATE customer SET state = ? WHERE customerId = ?";
+String sql8 = "UPDATE customer SET postalCode = ? WHERE customerId = ?";
+String sql9 = "UPDATE customer SET country = ? WHERE customerId = ?";
+String sql10 = "UPDATE customer SET userid = ? WHERE customerId = ?";
+String sql11= "UPDATE customer SET password = ? WHERE customerId = ?";
+String sql12 = "SELECT firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password FROM customer WHERE customerId = ?";
 
 try ( Connection con = DriverManager.getConnection(url, uid, pw);
       PreparedStatement stmt = con.prepareStatement(sql);
@@ -130,52 +130,122 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
       PreparedStatement stmt12 = con.prepareStatement(sql12); )
 {   
     
-    /*
-    stmt5.setString(1, customerId);
-    ResultSet rst = stmt5.executeQuery();
+    
+    stmt12.setString(1, customerId);
+    ResultSet rst = stmt12.executeQuery();
     rst.next();
     
-    if(productId == null) {
+    if(customerId == null) {
 
     }else {
-        if(productName != null && productName != ""){
-            stmt.setString(1, productName);
-            stmt.setInt(2, StringtoInt(productId, 0));
+        if(firstName != null && firstName != ""){
+            stmt.setString(1, firstName);
+            stmt.setInt(2, StringtoInt(customerId, 0));
             stmt.executeUpdate();
         }else{
             stmt.setString(1, rst.getString(1));
-            stmt.setInt(2, StringtoInt(productId, 0));
+            stmt.setInt(2, StringtoInt(customerId, 0));
             stmt.executeUpdate();
          
         }
-        if(categoryId != null && categoryId != ""){
-            stmt2.setInt(1, StringtoInt(categoryId, rst.getInt(2)));
-            stmt2.setInt(2, StringtoInt(productId, 0));
+        if(lastName != null && lastName != ""){
+            stmt2.setString(1, lastName);
+            stmt2.setInt(2, StringtoInt(customerId, 0));
             stmt2.executeUpdate();
         }else{
+            stmt2.setString(1, rst.getString(2));
+            stmt2.setInt(2, StringtoInt(customerId, 0));
+            stmt2.executeUpdate();
          
         }
-        if(productDesc != null && productDesc != ""){
-            stmt3.setString(1, productDesc);
-            stmt3.setInt(2, StringtoInt(productId, 0));
+        if(email != null && email != ""){
+            stmt3.setString(1, email);
+            stmt3.setInt(2, StringtoInt(customerId, 0));
             stmt3.executeUpdate();
         }else{
             stmt3.setString(1, rst.getString(3));
-            stmt3.setInt(2, StringtoInt(productId, 0));
+            stmt3.setInt(2, StringtoInt(customerId, 0));
             stmt3.executeUpdate();
          
         }
-        if(productPrice != null && productPrice != ""){
-            stmt4.setDouble(1, StringtoDouble(productPrice, rst.getDouble(4)));
-            stmt4.setInt(2, StringtoInt(productId, 0));
+        if(phonenum != null && phonenum != ""){
+            stmt4.setString(1, phonenum);
+            stmt4.setInt(2, StringtoInt(customerId, 0));
             stmt4.executeUpdate();
         }else{
+            stmt4.setString(1, rst.getString(4));
+            stmt4.setInt(2, StringtoInt(customerId, 0));
+            stmt4.executeUpdate();
          
         }
+        if(address != null && address != "") {
+            stmt5.setString(1, address);
+            stmt5.setInt(2, StringtoInt(customerId, 0));
+            stmt5.executeUpdate();
+        }else {
+            stmt5.setString(1, rst.getString(5));
+            stmt5.setInt(2, StringtoInt(customerId, 0));
+            stmt5.executeUpdate();
+        }
+        if(city != null && city != "") {
+            stmt6.setString(1, city);
+            stmt6.setInt(2, StringtoInt(customerId, 0));
+            stmt6.executeUpdate();
+        }else {
+            stmt6.setString(1, rst.getString(6));
+            stmt6.setInt(2, StringtoInt(customerId, 0));
+            stmt6.executeUpdate();
+        }
+        if(state != null && state != "") {
+            stmt7.setString(1, state);
+            stmt7.setInt(2, StringtoInt(customerId, 0));
+            stmt7.executeUpdate();
+        }else {
+            stmt7.setString(1, rst.getString(7));
+            stmt7.setInt(2, StringtoInt(customerId, 0));
+            stmt7.executeUpdate();
+        }
+        if(postalCode != null && postalCode != "") {
+            stmt8.setString(1, postalCode);
+            stmt8.setInt(2, StringtoInt(customerId, 0));
+            stmt8.executeUpdate();
+        }else {
+            stmt8.setString(1, rst.getString(8));
+            stmt8.setInt(2, StringtoInt(customerId, 0));
+            stmt8.executeUpdate();
+        }
+        if(country != null && country != "") {
+            stmt9.setString(1, country);
+            stmt9.setInt(2, StringtoInt(customerId, 0));
+            stmt9.executeUpdate();
+        }else {
+            stmt9.setString(1, rst.getString(9));
+            stmt9.setInt(2, StringtoInt(customerId, 0));
+            stmt9.executeUpdate();
+        }
+        if(userid != null && userid != "") {
+            stmt10.setString(1, userid);
+            stmt10.setInt(2, StringtoInt(customerId, 0));
+            stmt10.executeUpdate();
+        }else {
+            stmt10.setString(1, rst.getString(10));
+            stmt10.setInt(2, StringtoInt(customerId, 0));
+            stmt10.executeUpdate();
+        }
+        if(password != null && password != "") {
+            stmt11.setString(1, address);
+            stmt11.setInt(2, StringtoInt(customerId, 0));
+            stmt11.executeUpdate();
+        }else {
+            stmt11.setString(1, rst.getString(11));
+            stmt11.setInt(2, StringtoInt(customerId, 0));
+            stmt11.executeUpdate();
+        }
+        
         
    
     }
-    */
+    
 
 
 
