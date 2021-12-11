@@ -38,11 +38,11 @@ if (session.getAttribute("loginMessage") != null)
 <table style="display:inline">
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2"></div></td>
-	<td><input type="text" name="username"  id = "username-field" placeholder = "Username" class = "login-form" size=10 maxlength=10></td>
+	<td><input type="text" name="username"  id = "username-field" placeholder = "Username" class = "login-form" size=10 maxlength=16></td>
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2"></div></td>
-	<td><input type="password" name="password" id = "password-field" placeholder = "Password" class = "login-form" size=10 maxlength="10"></td>
+	<td><input type="password" name="password" id = "password-field" placeholder = "Password" class = "login-form" size=10 maxlength="16"></td>
 </tr>
 </table>
 <br/>

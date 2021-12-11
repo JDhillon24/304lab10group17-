@@ -95,6 +95,10 @@ finally
 		out.println("<br>");
 		out.println("<br>");
 		out.println("<li><span><a href=\"viewinventory.jsp\" class=\"button\">View Inventory</a></span></li>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<li><span><a href=\"shiporder.jsp\" class=\"button\">Ship Order</a></span></li>");
 		%>
 	</nav>
 
