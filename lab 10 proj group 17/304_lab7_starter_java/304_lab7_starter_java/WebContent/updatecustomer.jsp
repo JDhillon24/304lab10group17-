@@ -62,24 +62,25 @@
         <td><p>Country:</p></td>
         <td><input type="text" name="country" size=25 maxlength=20 required></td>
         </tr>
+        
         <tr><td><input id="submit-button" type="submit" name="submit" value="Update Account" class="submit-button"></td></tr>
         </table>
 </form>
 </div>
 <%
 
-String productId = request.getParameter("customerId");
-String productName = request.getParameter("firstName");
-String categoryId = request.getParameter("lastName");
-String productDesc = request.getParameter("email");
-String productPrice = request.getParameter("phonenum");
-String productId = request.getParameter("address");
-String productName = request.getParameter("city");
-String categoryId = request.getParameter("state");
-String productDesc = request.getParameter("postalCode");
-String productPrice = request.getParameter("country");
-String productId = request.getParameter("userid");
-String productName = request.getParameter("password");
+String customerId = request.getParameter("customerId");
+String firstName = request.getParameter("firstName");
+String lastName = request.getParameter("lastName");
+String email = request.getParameter("email");
+String phonenum = request.getParameter("phonenum");
+String address = request.getParameter("address");
+String city = request.getParameter("city");
+String state = request.getParameter("state");
+String postalCode = request.getParameter("postalCode");
+String country = request.getParameter("country");
+String userid = request.getParameter("userid");
+String password = request.getParameter("password");
 ;
 
 //Note: Forces loading of SQL Server driver
@@ -96,22 +97,36 @@ catch (java.lang.ClassNotFoundException e)
 {
 	out.println("ClassNotFoundException: " +e);
 }
-String sql = "UPDATE product SET productName = ? WHERE productId = ?";
-String sql2 = "UPDATE product SET categoryId = ? WHERE productId = ?";
-String sql3= "UPDATE product SET productDesc = ? WHERE productId = ?";
-String sql4 = "UPDATE product SET productPrice = ? WHERE productId = ?";
-String sql5 = "SELECT productName, categoryId, productDesc, productPrice FROM product WHERE productId = ?";
+String sql = "UPDATE product SET firstName = ? WHERE productId = ?";
+String sql2 = "UPDATE product SET lastName = ? WHERE productId = ?";
+String sql3= "UPDATE product SET email = ? WHERE productId = ?";
+String sql4 = "UPDATE product SET phonenum = ? WHERE productId = ?";
+String sql5 = "UPDATE product SET address = ? WHERE productId = ?";
+String sql6 = "UPDATE product SET city = ? WHERE productId = ?";
+String sql7= "UPDATE product SET state = ? WHERE productId = ?";
+String sql8 = "UPDATE product SET postalCode = ? WHERE productId = ?";
+String sql9 = "UPDATE product SET country = ? WHERE productId = ?";
+String sql10 = "UPDATE product SET userid = ? WHERE productId = ?";
+String sql11= "UPDATE product SET password = ? WHERE productId = ?";
+String sql12 = "SELECT productName, categoryId, productDesc, productPrice FROM product WHERE productId = ?";
 
 try ( Connection con = DriverManager.getConnection(url, uid, pw);
       PreparedStatement stmt = con.prepareStatement(sql);
       PreparedStatement stmt2 = con.prepareStatement(sql2);
       PreparedStatement stmt3 = con.prepareStatement(sql3);
       PreparedStatement stmt4 = con.prepareStatement(sql4);
-      PreparedStatement stmt5 = con.prepareStatement(sql5); )
+      PreparedStatement stmt5 = con.prepareStatement(sql5);
+      PreparedStatement stmt6 = con.prepareStatement(sql6);
+      PreparedStatement stmt7 = con.prepareStatement(sql7);
+      PreparedStatement stmt8 = con.prepareStatement(sql8);
+      PreparedStatement stmt9 = con.prepareStatement(sql9);
+      PreparedStatement stmt10 = con.prepareStatement(sql10); 
+      PreparedStatement stmt11 = con.prepareStatement(sql11);
+      PreparedStatement stmt12 = con.prepareStatement(sql12); )
 {   
     
     
-    stmt5.setString(1, productId);
+    stmt5.setString(1, customerId);
     ResultSet rst = stmt5.executeQuery();
     rst.next();
     
