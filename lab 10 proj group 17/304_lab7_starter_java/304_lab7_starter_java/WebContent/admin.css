@@ -1,0 +1,13 @@
+nav .button{
+    background-color: #3a3a3a; 
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 45px;
+}
+
+nav li{
+    display: table;
+    height: 100%;
+    float: left;
+    margin-right: 30px;
+}

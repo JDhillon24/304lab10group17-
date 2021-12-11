@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Administrator Page</title>
+<link rel="stylesheet" href="admin.css">
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -10,12 +11,6 @@
 <%@ include file="jdbc.jsp" %>
 <%@ page import="java.util.Locale" %>
 
-<%
-	String userName1 = (String) session.getAttribute("authenticatedUser");
-	out.println("<li><span><a href=\"addproduct.jsp\" class=\"button\">Add New Product</a></span></li>");
-	out.println("<li><span><a href=\"deleteproduct.jsp\" class=\"button\">Delete Product</a></span></li>");
-	out.println("<li><span><a href=\"updateproduct.jsp\" class=\"button\">Update Product</a></span></li>");
-%>
 
 <%
 try
@@ -66,6 +61,30 @@ finally
 	closeConnection();	
 }
 %>
+	<nav>
+		<%
+		String userName1 = (String) session.getAttribute("authenticatedUser");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<li><span><a href=\"addproduct.jsp\" class=\"button\">Add New Product</a></span></li>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<li><span><a href=\"deleteproduct.jsp\" class=\"button\">Delete Product</a></span></li>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<li><span><a href=\"updateproduct.jsp\" class=\"button\">Update Product</a></span></li>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<li><span><a href=\"addwarehouse.jsp\" class=\"button\">Add Warehouse</a></span></li>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<li><span><a href=\"addwarehouse.jsp\" class=\"button\">Add New Customer</a></span></li>");
+		%>
+	</nav>
 
 </body>
 </html>
