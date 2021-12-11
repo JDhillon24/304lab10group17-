@@ -18,6 +18,15 @@
 <%
 // Get order id
 String ordId = request.getParameter("orderId");
+
+try
+{	// Load driver class
+	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+}
+catch (java.lang.ClassNotFoundException e)
+{
+	out.println("ClassNotFoundException: " +e);
+} 
           
 try 
 {	
@@ -26,12 +35,15 @@ try
 	else
 	{					
 		// Get database connection
-        getConnection();
+        
 	            
      	// Check if valid order id
-        String sql = "SELECT orderId, productId, quantity, price FROM orderproduct WHERE orderId = ?";	
+		 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+		 String uid = "SA";
+		 String pw = "YourStrong@Passw0rd";
+		 String sql = "SELECT orderId, productId, quantity, price FROM orderproduct WHERE orderId = ?";	
 				      
-   		con = DriverManager.getConnection(url, uid, pw);
+   		Connection con = DriverManager.getConnection(url, uid, pw);
    		PreparedStatement pstmt = con.prepareStatement(sql);
    		pstmt.setInt(1, Integer.parseInt(ordId));
    		ResultSet rst = pstmt.executeQuery();
