@@ -21,6 +21,13 @@
 String custId = request.getParameter("customerId");
 // Get password
 String password = request.getParameter("password");
+String ccnumber = request.getParameter("ccnumber");
+String expiry = request.getParameter("expiry");
+String address = request.getParameter("address");
+String city = request.getParameter("city");
+String state = request.getParameter("state");
+String postalcode = request.getParameter("postalcode");
+String country = request.getParameter("country");
 // Get shopping cart
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
@@ -139,7 +146,14 @@ PreparedStatement pstmt = con.prepareStatement(sql);)
    			PreparedStatement pstmt4 = con.prepareStatement(sql);
    			pstmt4.setDouble(1, total);
    			pstmt4.setInt(2, orderId);			
-   			pstmt4.executeUpdate();						
+   			pstmt4.executeUpdate();
+			out.println("<br>");
+			out.println("<h3>Shipping Info:</h3>");
+			out.println("<p>"+custName+"</p>");
+			out.println("<p>"+address+"</p>");	
+			out.println("<p>"+city+", "+state+" "+postalcode+"</p>");
+			out.println("<p>"+country+"</p>");
+			out.println("<br>");								
 
    			out.println("<h1>Order completed.  Will be shipped soon...</h1>");
    			out.println("<h1>Your order reference number is: "+orderId+"</h1>");
@@ -165,7 +179,7 @@ finally
 	}
 }  
 %>                       				
-
+<br>
 <h2><a href="index.jsp">Back to Main Page</a></h2>
 
 </body>
