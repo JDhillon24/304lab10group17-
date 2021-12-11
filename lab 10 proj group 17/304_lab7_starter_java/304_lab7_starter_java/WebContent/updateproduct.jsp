@@ -71,47 +71,100 @@ String sql = "UPDATE product SET productName = ? WHERE productId = ?";
 String sql2 = "UPDATE product SET categoryId = ? WHERE productId = ?";
 String sql3= "UPDATE product SET productDesc = ? WHERE productId = ?";
 String sql4 = "UPDATE product SET productPrice = ? WHERE productId = ?";
+String sql5 = "SELECT productName, categoryId, productDesc, productPrice FROM product WHERE productId = ?";
 
 try ( Connection con = DriverManager.getConnection(url, uid, pw);
       PreparedStatement stmt = con.prepareStatement(sql);
       PreparedStatement stmt2 = con.prepareStatement(sql2);
       PreparedStatement stmt3 = con.prepareStatement(sql3);
-      PreparedStatement stmt4 = con.prepareStatement(sql4); )
-{
-    if(productName != null || productName != ""){
-        stmt.setString(1, productName);
-        stmt.setInt(2, Integer.parseInt("0" + productId));
-        stmt.executeUpdate();
-    }else{
-     
+      PreparedStatement stmt4 = con.prepareStatement(sql4);
+      PreparedStatement stmt5 = con.prepareStatement(sql5); )
+{   
+    
+    
+    stmt5.setString(1, productId);
+    ResultSet rst = stmt5.executeQuery();
+    rst.next();
+    
+    if(productId == null) {
+
+    }else {
+        if(productName != null && productName != ""){
+            stmt.setString(1, productName);
+            stmt.setInt(2, StringtoInt(productId, 0));
+            stmt.executeUpdate();
+        }else{
+            stmt.setString(1, rst.getString(1));
+            stmt.setInt(2, StringtoInt(productId, 0));
+            stmt.executeUpdate();
+         
+        }
+        if(categoryId != null && categoryId != ""){
+            stmt2.setInt(1, StringtoInt(categoryId, rst.getInt(2)));
+            stmt2.setInt(2, StringtoInt(productId, 0));
+            stmt2.executeUpdate();
+        }else{
+         
+        }
+        if(productDesc != null && productDesc != ""){
+            stmt3.setString(1, productDesc);
+            stmt3.setInt(2, StringtoInt(productId, 0));
+            stmt3.executeUpdate();
+        }else{
+            stmt3.setString(1, rst.getString(3));
+            stmt3.setInt(2, StringtoInt(productId, 0));
+            stmt3.executeUpdate();
+         
+        }
+        if(productPrice != null && productPrice != ""){
+            stmt4.setDouble(1, StringtoDouble(productPrice, rst.getDouble(4)));
+            stmt4.setInt(2, StringtoInt(productId, 0));
+            stmt4.executeUpdate();
+        }else{
+         
+        }
     }
-    if(categoryId != null || categoryId != ""){
-        stmt2.setInt(1, Integer.parseInt("0" + categoryId));
-        stmt2.setInt(2, Integer.parseInt(productId));
-        stmt2.executeUpdate();
-    }else{
-     
-    }
-    if(productDesc != null || productDesc != ""){
-        stmt3.setString(1, productDesc);
-        stmt3.setInt(2, Integer.parseInt(productId));
-        stmt3.executeUpdate();
-    }else{
-     
-    }
-    if(productPrice != null || productPrice != ""){
-        stmt4.setDouble(1, Double.parseDouble("0" + productPrice));
-        stmt4.setInt(2, Integer.parseInt(productId));
-        stmt4.executeUpdate();
-}   else{
-     
- }
+
+
+
+
+
+ 
 }
 catch (SQLException ex) 
 { 	out.println(ex); 
 }
 //response.sendRedirect("admin.jsp");
 // Close connection
+%>
+
+
+<%!
+    int StringtoInt(String x, int y) {
+
+        try {
+            return Integer.parseInt(x);
+        }
+        catch (NumberFormatException e) {
+            return y;
+        }
+    }
+
+    double StringtoDouble(String x, double y) {
+
+        try {
+            return Double.parseDouble(x);
+        }
+        catch (NumberFormatException e) {
+            return y;
+        }
+    }
+
+
+
+
+
+
 %>
 
 </body>
