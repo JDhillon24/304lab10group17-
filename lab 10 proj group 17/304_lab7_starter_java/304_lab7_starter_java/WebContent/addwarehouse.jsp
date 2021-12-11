@@ -53,7 +53,7 @@ catch (java.lang.ClassNotFoundException e)
 {
 	out.println("ClassNotFoundException: " +e);
 }
-String sql = "INSERT INTO warehouse (wName) VALUES (?)";
+String sql = "INSERT INTO warehouse (warehouseName) VALUES (?)";
 
 try ( Connection con = DriverManager.getConnection(url, uid, pw);
       PreparedStatement stmt = con.prepareStatement(sql); )
