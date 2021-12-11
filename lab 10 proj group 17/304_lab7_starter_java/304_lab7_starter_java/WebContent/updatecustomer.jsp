@@ -7,11 +7,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Add Product</title>
+<title>Update Customer</title>
 <link rel="stylesheet" href="updateproduct.css">
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+<%@ include file="header.jsp" %>
 
 <br />
 <h1><center>Update Customer</center></h1>

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Add Product</title>
+<title>Delete Product</title>
 <link rel="stylesheet" href="deleteproduct.css">
 </head>
 <body>

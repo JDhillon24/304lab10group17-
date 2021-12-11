@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ClickForKicks Register</title>
+<title>Register</title>
 <link rel="stylesheet" href="createaccount.css">
 </head>
 <body>
