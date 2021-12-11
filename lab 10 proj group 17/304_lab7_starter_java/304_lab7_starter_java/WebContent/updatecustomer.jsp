@@ -14,43 +14,72 @@
 	<%@ include file="header.jsp" %>
 
 <br />
-<h1><center>Update Product</center></h1>
+<h1><center>Update Customer</center></h1>
 <br />
 <div align="center">
 <form name="MyForm1" method=post action="#">
-    <table style="display:inline">
-    <tr class= "spacerows">
-        <td><p>Product ID: </p></td>
-        <td><input type="text" name="productId"  id = "productId-field"  class = "Product-form" size=2 maxlength=2 required></td>
-    </tr>
-    <tr class= "spacerows">
-        <td><p>Product Name:</p></td>
-        <td><input type="text" name="productName"  id = "productName-field"  class = "Product-form" size=10 maxlength=10 ></td>
-    </tr>
-    <tr class= "spacerows">
-        <td><p>Category Id:</p></td>
-        <td><input type="text" name="categoryId"  id = "categoryId-field"  class = "Product-form" size=10 maxlength=10 ></td>
-    </tr>
-    <tr class= "spacerows">
-        <td><p>Product Description:</p></td>
-        <td><input type="text" name="productDesc"  id = "productDesc-field"  class = "Product-form" size=10 maxlength=50 ></td>
-    </tr>
-    <tr class= "spacerows">
-        <td><p>Shoe Price:</p> </td>
-        <td><input type="text" name="productPrice"  id = "productPrice-field"  class = "Product-form" size=10 maxlength=10 ></td>
-    </tr>
-    <tr><td><input class="submit-button" type="submit" name="Submit2" value="Submit" id = "submit-button"></td></tr>
-   
-</table>
+    <table style="display:inline"><tr class="spacerows">
+        <td><p>Username:</p></td>
+        <td><input type="text" name="username" size=25 maxlength=16 required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>Password:</p></td>
+        <td><input type="password" name="password" size=25 maxlength=16 required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>First Name:</p></td> 
+        <td><input type="text" name="fname" size=25 maxlength=16 required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>Last Name:</p></td>
+        <td><input type="text" name="lname" size=25 maxlength=16 required></td> 
+        </tr>
+        <tr class="spacerows">
+        <td><p>Email:</p></td>
+        <td><input type="email" name="email" size=25 maxlength=64 required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>Phone #:</p></td>
+        <td><input type="tel" name="phone" size=25 pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>Address:</p></td>
+        <td><input type="text" name="address" size=25 maxlength=40 required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>City:</p></td>
+        <td><input type ="text" name="city" size=25 maxlength=20 required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>State:</p></td>
+        <td><input type="text" name="state" size=25 maxlength=20 required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>Postal Code:</p></td>
+        <td><input type="text" name="postalcode" size=25 maxlength=6 required></td>
+        </tr>
+        <tr class="spacerows">
+        <td><p>Country:</p></td>
+        <td><input type="text" name="country" size=25 maxlength=20 required></td>
+        </tr>
+        <tr><td><input id="submit-button" type="submit" name="submit" value="Update Account" class="submit-button"></td></tr>
+        </table>
 </form>
 </div>
 <%
 
-String productId = request.getParameter("productId");
-String productName = request.getParameter("productName");
-String categoryId = request.getParameter("categoryId");
-String productDesc = request.getParameter("productDesc");
-String productPrice = request.getParameter("productPrice");
+String productId = request.getParameter("customerId");
+String productName = request.getParameter("firstName");
+String categoryId = request.getParameter("lastName");
+String productDesc = request.getParameter("email");
+String productPrice = request.getParameter("phonenum");
+String productId = request.getParameter("address");
+String productName = request.getParameter("city");
+String categoryId = request.getParameter("state");
+String productDesc = request.getParameter("postalCode");
+String productPrice = request.getParameter("country");
+String productId = request.getParameter("userid");
+String productName = request.getParameter("password");
 ;
 
 //Note: Forces loading of SQL Server driver

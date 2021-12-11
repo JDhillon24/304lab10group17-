@@ -20,7 +20,7 @@
 <form name="MyForm1" method=post action="#">
     <table style="display:inline">
     <tr class= "spacerows">
-        <td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product ID: </div></td>
+        <td><p>Product ID:</p></td>
         <td><input type="text" name="productId"  id = "productId-field"  class = "Product-form" size=2 maxlength=2 required></td>
     </tr>
     <tr><td><input class="submit-button" type="submit" name="Submit2" value="Submit" id = "submit-button"></td></tr>

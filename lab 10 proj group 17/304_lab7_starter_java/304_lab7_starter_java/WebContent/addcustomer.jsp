@@ -13,7 +13,7 @@
 <body>
 <%@ include file="header.jsp" %>
 <br>
-<h1 align="center">Create an Account</h3>
+<h1 align="center">Add New Account</h3>
 <br>
 <div align="center">
 <form action = "#" method = "POST">

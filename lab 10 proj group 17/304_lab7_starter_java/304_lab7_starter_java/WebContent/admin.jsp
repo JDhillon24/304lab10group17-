@@ -82,7 +82,15 @@ finally
 		out.println("<br>");
 		out.println("<br>");
 		out.println("<br>");
-		out.println("<li><span><a href=\"addwarehouse.jsp\" class=\"button\">Add New Customer</a></span></li>");
+		out.println("<li><span><a href=\"addcustomer.jsp\" class=\"button\">Add New Customer</a></span></li>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<li><span><a href=\"updatewarehouse.jsp\" class=\"button\">Update Warehouse</a></span></li>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<br>");
+		out.println("<li><span><a href=\"updatecustomer.jsp\" class=\"button\">Update Customer</a></span></li>");
 		%>
 	</nav>
 

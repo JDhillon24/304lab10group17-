@@ -20,19 +20,19 @@
 <form name="MyForm1" method=post action="#">
     <table style="display:inline">
     <tr class= "spacerows">
-        <td><center></center><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Shoe Name: </div></center></td>
+        <td><p>Shoe Name: </p></td>
         <td><center><input type="text" name="name"  id = "pname-field" class = "Product-form" size=10 maxlength=10 required></center></td>
     </tr>
     <tr class= "spacerows">
-        <td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Category Id: </div></td>
+        <td><p>Category Id: </p></td>
         <td><input type="text" name="categoryId"  id = "categoryId-field"  class = "Product-form" size=10 maxlength=10 required></td>
     </tr>
     <tr class= "spacerows">
-        <td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2"></div>Shoe Type: </td>
+        <td><p>Shoe Type: </p></td>
         <td><input type="text" name="productDesc"  id = "productDesc-field"  class = "Product-form" size=10 maxlength=20 required></td>
     </tr>
     <tr class= "spacerows">
-        <td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Shoe Price: </div></td>
+        <td><p>Shoe Price: </p></td>
         <td><input type="text" name="productPrice"  id = "productPrice-field"  class = "Product-form" size=10 maxlength=10 required></td>
     </tr>
     <tr><td><input class="submit-button" type="submit" name="Submit2" value="Submit" id = "submit-button"></td></tr>
