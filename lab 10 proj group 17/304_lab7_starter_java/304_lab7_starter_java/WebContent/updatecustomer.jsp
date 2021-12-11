@@ -18,49 +18,54 @@
 <br />
 <div align="center">
 <form name="MyForm1" method=post action="#">
-    <table style="display:inline"><tr class="spacerows">
+    <table style="display:inline">
+        <tr class="spacerows">
+        <td><p>Customer ID:</p></td>
+        <td><input type="text" name="customerId" size=10 maxlength=16 required></td>
+        </tr>
+        <tr class="spacerows">
         <td><p>Username:</p></td>
-        <td><input type="text" name="username" size=25 maxlength=16 required></td>
+        <td><input type="text" name="username" size=25 maxlength=16></td>
         </tr>
         <tr class="spacerows">
         <td><p>Password:</p></td>
-        <td><input type="password" name="password" size=25 maxlength=16 required></td>
+        <td><input type="password" name="password" size=25 maxlength=16 ></td>
         </tr>
         <tr class="spacerows">
         <td><p>First Name:</p></td> 
-        <td><input type="text" name="fname" size=25 maxlength=16 required></td>
+        <td><input type="text" name="fname" size=25 maxlength=16 ></td>
         </tr>
         <tr class="spacerows">
         <td><p>Last Name:</p></td>
-        <td><input type="text" name="lname" size=25 maxlength=16 required></td> 
+        <td><input type="text" name="lname" size=25 maxlength=16 ></td> 
         </tr>
         <tr class="spacerows">
         <td><p>Email:</p></td>
-        <td><input type="email" name="email" size=25 maxlength=64 required></td>
+        <td><input type="email" name="email" size=25 maxlength=64 ></td>
         </tr>
         <tr class="spacerows">
         <td><p>Phone #:</p></td>
-        <td><input type="tel" name="phone" size=25 pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required></td>
+        <td><input type="tel" name="phone" size=25 pattern="[0-9]{3}[0-9]{3}[0-9]{4}" ></td>
         </tr>
         <tr class="spacerows">
         <td><p>Address:</p></td>
-        <td><input type="text" name="address" size=25 maxlength=40 required></td>
+        <td><input type="text" name="address" size=25 maxlength=40 ></td>
         </tr>
         <tr class="spacerows">
         <td><p>City:</p></td>
-        <td><input type ="text" name="city" size=25 maxlength=20 required></td>
+        <td><input type ="text" name="city" size=25 maxlength=20 ></td>
         </tr>
         <tr class="spacerows">
         <td><p>State:</p></td>
-        <td><input type="text" name="state" size=25 maxlength=20 required></td>
+        <td><input type="text" name="state" size=25 maxlength=20 ></td>
         </tr>
         <tr class="spacerows">
         <td><p>Postal Code:</p></td>
-        <td><input type="text" name="postalcode" size=25 maxlength=6 required></td>
+        <td><input type="text" name="postalcode" size=25 maxlength=6 ></td>
         </tr>
         <tr class="spacerows">
         <td><p>Country:</p></td>
-        <td><input type="text" name="country" size=25 maxlength=20 required></td>
+        <td><input type="text" name="country" size=25 maxlength=20 ></td>
         </tr>
         
         <tr><td><input id="submit-button" type="submit" name="submit" value="Update Account" class="submit-button"></td></tr>
@@ -70,18 +75,18 @@
 <%
 
 String customerId = request.getParameter("customerId");
-String firstName = request.getParameter("firstName");
-String lastName = request.getParameter("lastName");
+String firstName = request.getParameter("fname");
+String lastName = request.getParameter("lname");
 String email = request.getParameter("email");
-String phonenum = request.getParameter("phonenum");
+String phonenum = request.getParameter("phone");
 String address = request.getParameter("address");
 String city = request.getParameter("city");
 String state = request.getParameter("state");
-String postalCode = request.getParameter("postalCode");
+String postalCode = request.getParameter("postalcode");
 String country = request.getParameter("country");
-String userid = request.getParameter("userid");
+String userid = request.getParameter("username");
 String password = request.getParameter("password");
-;
+
 
 //Note: Forces loading of SQL Server driver
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
@@ -125,7 +130,7 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
       PreparedStatement stmt12 = con.prepareStatement(sql12); )
 {   
     
-    
+    /*
     stmt5.setString(1, customerId);
     ResultSet rst = stmt5.executeQuery();
     rst.next();
@@ -167,7 +172,10 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
         }else{
          
         }
+        
+   
     }
+    */
 
 
 

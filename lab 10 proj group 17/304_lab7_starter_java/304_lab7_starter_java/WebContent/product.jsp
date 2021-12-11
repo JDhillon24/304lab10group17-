@@ -9,14 +9,15 @@
 <head>
 <title>ClickForKicks Inc.</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<%@ include file="header.jsp" %>
 </head>
 <body>
 
-<%@ include file="header.jsp" %>
+
 
 <form action = "#" method = "POST">
     <input type="text" id="textreview" name="textreview" class="textentry" />
-    <input type="submit" value="Submit" style="position:absolute; top:660px; left:590px;"/>
+    <input type="submit" value="Submit" style="position:absolute; top:660px; left:595px;"/>
 </form>
 <%
 // Get product name to search for
@@ -102,9 +103,9 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
     
     stmt2.setString(1, productId);
     ResultSet rst2 = stmt2.executeQuery();
-    out.println("<table><tr><th>User ID</th><th>Date Posted</th><th>Review</th></tr>");
+    out.println("<table><tr><th style='margin: 10px; padding: 5px'>User ID</th><th style='margin: 10px; padding: 5px'>Date Posted</th><th style='margin: 10px; padding: 5px'>Review</th></tr>");
     while(rst2.next()) {
-        out.println("<tr><td>"+rst2.getString(1)+"</td><td>"+rst2.getTimestamp(2)+"</td><td>"+rst2.getString(3)+"</td></tr>");
+        out.println("<tr><td style='margin: 10px; padding: 5px'>"+rst2.getString(1)+"</td><td style='margin: 10px; padding: 5px'>"+rst2.getTimestamp(2)+"</td><td style='margin: 10px; padding: 5px'>"+rst2.getString(3)+"</td></tr>");
     }
     out.println("</table>");
 

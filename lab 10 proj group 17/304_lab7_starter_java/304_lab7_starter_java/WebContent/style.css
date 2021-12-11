@@ -82,7 +82,7 @@ header nav .button{
 .textentry {
     position:  absolute;
     top:       400px;  
-    left:      590px; 
+    left:      595px; 
     height:    250px;  
     width:     500px;
   }
@@ -100,6 +100,8 @@ header nav .button:hover{
 tr.spacerows>td {
     padding-bottom: 2em;
   }
+
+
 @media only screen and (max-width: 600px) {
     header .inner {
         width: 600px;  
